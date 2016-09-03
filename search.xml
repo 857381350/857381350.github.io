@@ -4,8 +4,41 @@
   
     
     <entry>
+      <title><![CDATA[Dom事件学习笔记总结]]></title>
+      <url>http://carvebone.com/2016/08/17/My-New-Post/</url>
+      <content type="html"><![CDATA[<p></p><h3>事件</h3> <p>是文档或浏览器窗口中发生的特定的交互瞬间。【JavaScript &lt;——&gt;HTML】</p> <p></p>
+<p></p><h3>事件流：</h3> <p>描述的是从页面中接受事件的顺序 （IE：事件冒泡流 / Netscape事件捕获流）</p><p></p>
+<p></p><h3>事件冒泡：</h3><p>即事件最开始由最具体的元素（文档中嵌套最深的那个节点）接收，然后逐级向上传播至最不具体的那个节点（文档）。</p> <p></p>
+<p></p><h3>事件捕获：</h3> <p>不太具体的节点应该更早接收到元素，而最具体的节点最后接收到事件。</p><p></p>
+<p></p><h3>HTML事件处理程序(现在不建议使用了): </h3><br>事件直接加在HTML代码中<br>缺点：HTML和js代码高耦合，如果修改，就要修改两个地方–HTML元素内和script函数。<br> <a id="more"></a><p></p>
+<h3 id="DOM0级事件处理程序（用得比较多）："><a href="#DOM0级事件处理程序（用得比较多）：" class="headerlink" title="DOM0级事件处理程序（用得比较多）："></a>DOM0级事件处理程序（用得比较多）：</h3><p>先把元素取出来，然后为其属性添加一个事件的方法叫DOM0级处理程序。 它是一种较传统的方式：把一个函数赋值给一个事件处理程序的属性。<br>优点：简单，跨浏览器的优势 var btn2=document.getElementById(“btn2”);—先获取出元素，定义对象 //取得btn2按钮对象<br>btn2.onclick=function(){alert(‘这是通过DOM0级添加的事件！’)}—-让 事件以对象的属性 的形式出现。 //给btn2添加onclick属性</p>
+<h3 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h3><p>定义了两个方法–用于处理指定和删除事件处理程序的操作：<br>addEventListener()添加事件监听程序<br>removeEventListener()移除事件监听程序<br>三个参数设置;事件名称，处理方法(函数)，布尔值–false：表示在冒泡阶段调用事件处理程序(可以最大限度的兼容浏览器)，一般设为false；true表示在捕获阶段调用事件处理程序<br>btn3.addEventListener(‘click’,showMes,false);<br>注意：<br>1、若事件名称有on，则需去掉on。onclick –&gt; click，onmouseover –&gt; mouseover等等；<br>2、false 最大限度兼容所有浏览器–事件冒泡流。<br>3.通过addEventListener添加的事件只能通过removeEventListener来删除。–参数要与添加事件时相同 btn3.removeEventListener(参数);//参数必须和btn.addEventListener的参数一致，删除事件监听</p>
+<p> <i>DOM0级和DOM2级事件处理程序可以给一个事件绑定多个函数，事件触发的时候会按照绑定顺序执行各个函数。如下所示：<br> btn3.addEventListener(‘click’,showMes,false);<br> btn3.addEventListener(‘click’,showMes,function(){alert(this.value）;},false);<br> 缺点：IE不支持该事件</i> </p>
+<h3 id="IE事件处理程序："><a href="#IE事件处理程序：" class="headerlink" title="IE事件处理程序："></a>IE事件处理程序：</h3><p>IE也提供了类似DOM2级事件处理程序<br>attachEvent()添加事件<br>detachEvent()删除事件<br>接收相同的两个参数，事件处理程序的名称和事件处理程序的函数。去掉了布尔值，不使用第三个参数的原因:IE8以及更早的浏览器版本只支持事件冒泡！<br>在ie下给btn3添加事件<br>btn3.attachEvent(‘onclick’,showMes);<br>主意：在ie事件处理程序上，又要把on加上<br>btn3.detachEvent(‘onclick’,showMes);<br>支持ie事件处理程序的浏览器主要有ie和opera两个浏览器。</p>
+<h3 id="跨浏览器事件处理程序"><a href="#跨浏览器事件处理程序" class="headerlink" title="跨浏览器事件处理程序"></a>跨浏览器事件处理程序</h3><pre><code>var eventUtil = { 
+//添加句柄
+ addHandler:function(element,type,handler){ 
+         if(element.addEventListener){element.addEventListener(type,handler,false); } // DOM2级事件处理程序 
+             else if(element.attachEvent){element.attachEvent('on'+type,handler);} // IE事件处理程序 
+                 else{element['on'+type]=handler;} // DOM0级事件处理程序 }, //删除句柄 
+ removeHandler:function(element,type,handler){ 
+         if(element.removeEventListener){element.removeEventListener(type,handler,false);} // DOM2级事件处理程序 
+         else if(element.detachEvent){element.detachEvent('on'+type,handler);} // IE事件处理程序 
+         else{element['on'+type]=null;} //DOM0级事件处理程序
+              }
+           } eventUtil.addHandler(btn3,'click',showMessage);
+           </code></pre>
+
+<h3 id="js中所有用’-’的地方都可以使用’-’"><a href="#js中所有用’-’的地方都可以使用’-’" class="headerlink" title="js中所有用’.’的地方都可以使用’[]’"></a>js中所有用’.’的地方都可以使用’[]’</h3><p>如：对象的点击事件element.onclick===element[‘onclick’] 什么是事件对象？在触发DOM上的事件时都会产生一个对象 事件对象EVENT </p>
+<h3 id="DOM中的事件对象-属性"><a href="#DOM中的事件对象-属性" class="headerlink" title="DOM中的事件对象 属性"></a>DOM中的事件对象 属性</h3><p>（1）、type属性用于获取事件类型<br>（2）、target属性用于获取事件目标<br>（3）、stopPropagation()方法 用于阻止事件冒泡<br>（4）、preventDefault() 方法 阻止事件的默认行为 </p>
+<p><i>如果一个div里面有一个button，button和div都绑定了click事件，如果是事件冒泡，那么点击button的时候，首先触发button的处理函数，然后触发div的处理函数。（由内而外） 如果有时候不想冒泡，也就是不希望div的事件被触发，那么需要阻止事件冒泡。stopPropagation()方法<br>如果需要阻止a标签的默认属性跳转，可以使用阻止事件的默认行为preventDefault()方法</i> </p>
+<h3 id="在IE中-几乎都是属性存在的"><a href="#在IE中-几乎都是属性存在的" class="headerlink" title="在IE中: 几乎都是属性存在的"></a>在IE中: 几乎都是属性存在的</h3><p> 1) event window.event (IE 8以前)<br> 2) srcElement属性： 用于获取目标  event.target event.srcElement<br> 3) cancleBubble属性: 用于阻止事件冒泡<br> 4) returnValue属性: 用于阻止事件的默认行为<br>  false表示阻止事件的默认行为</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[jQuery选择器总结]]></title>
-      <url>http://carvebone.com/2016/07/22/My-New-Post/</url>
+      <url>http://carvebone.com/2016/07/22/jQuery%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<h2 id="jQuery-的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法"><a href="#jQuery-的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法" class="headerlink" title="jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法"></a>jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法</h2><p>$(“#myELement”)    选择id值等于myElement的元素，id值不能重复在文档中只能有一个id值是myElement所以得到的是唯一的元素<br>$(“div”)           选择所有的div标签元素，返回div元素数组<br>$(“.myClass”)      选择使用myClass类的css的所有元素<br>$(“*”)             选择文档中的所有的元素，可以运用多种的选择方式进行联合选择：例如$(“#myELement,div,.myclass”)<br> <a id="more"></a></p>
 <h2 id="层叠选择器："><a href="#层叠选择器：" class="headerlink" title="层叠选择器："></a>层叠选择器：</h2><p>$(“form input”)         选择所有的form元素中的input元素<br>$(“#main &gt; *”)          选择id值为main的所有的子元素<br>$(“label + input”)     选择所有的label元素的下一个input元素节点，经测试选择器返回的是label标签后面直接跟一个input标签的所有input标签元素<br>$(“#prev ~ div”)       同胞选择器，该选择器返回的为id为prev的标签元素的所有的属于同一个父元素的div标签 </p>
 <h2 id="基本过滤选择器："><a href="#基本过滤选择器：" class="headerlink" title="基本过滤选择器："></a>基本过滤选择器：</h2><p>$(“tr:first”)               选择所有tr元素的第一个<br>$(“tr:last”)                选择所有tr元素的最后一个<br>$(“input:not(:checked) + span”)   </p>
