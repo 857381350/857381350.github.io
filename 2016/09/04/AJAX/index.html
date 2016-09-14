@@ -84,13 +84,13 @@
 
 
 
-<meta name="description" content="Ajax全接触 
+<meta name="description" content="Ajax 
 一、ajax介绍Asynchronous JavaScript and XML（异步的JavaScript和XML） 是一种在无需加载整个网页的情况之下能够更新部分网页的技术。读音：A zhai ke si 不是 阿贾克斯Ajax带来了网页的异步。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax全接触">
 <meta property="og:url" content="http://carvebone.com/2016/09/04/AJAX/index.html">
 <meta property="og:site_name" content="琢骨のBlog">
-<meta property="og:description" content="Ajax全接触 
+<meta property="og:description" content="Ajax 
 一、ajax介绍Asynchronous JavaScript and XML（异步的JavaScript和XML） 是一种在无需加载整个网页的情况之下能够更新部分网页的技术。读音：A zhai ke si 不是 阿贾克斯Ajax带来了网页的异步。">
 <meta property="og:image" content="http://img.mukewang.com/57bef7a20001565f06920356.png">
 <meta property="og:image" content="http://img.mukewang.com/57bef7e700010dbc06800304.png">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="http://img.mukewang.com/57bef83c00018bb005290376.png">
 <meta property="og:image" content="http://img.mukewang.com/57bef85b000185a508260527.png">
 <meta property="og:image" content="http://img.mukewang.com/57bef871000128b409090425.png">
-<meta property="og:updated_time" content="2016-09-14T06:49:38.725Z">
+<meta property="og:updated_time" content="2016-09-14T06:52:02.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax全接触">
-<meta name="twitter:description" content="Ajax全接触 
+<meta name="twitter:description" content="Ajax 
 一、ajax介绍Asynchronous JavaScript and XML（异步的JavaScript和XML） 是一种在无需加载整个网页的情况之下能够更新部分网页的技术。读音：A zhai ke si 不是 阿贾克斯Ajax带来了网页的异步。">
 <meta name="twitter:image" content="http://img.mukewang.com/57bef7a20001565f06920356.png">
 
@@ -342,9 +342,9 @@
       
 
       
-        <p></p><h1>Ajax全接触</h1> <p></p>
+        <p></p><h1>Ajax</h1> <p></p>
 <h3 id="一、ajax介绍"><a href="#一、ajax介绍" class="headerlink" title="一、ajax介绍"></a>一、ajax介绍</h3><p>Asynchronous JavaScript and XML（异步的JavaScript和XML） 是一种在无需加载整个网页的情况之下能够更新部分网页的技术。<br>读音：A zhai ke si 不是 阿贾克斯<br>Ajax带来了网页的异步。<br><a id="more"></a></p>
-<h3 id="二、介绍http-"><a href="#二、介绍http-" class="headerlink" title="二、介绍http ###"></a>二、介绍http ###</h3><p>http：计算机通过网路进行通信的协议 ###<br>http请求：<br>1、建立TCP连接<br>2、Web浏览器向Web服务器发送请求命令<br>3、Web浏览器发送请求头信息<br>4、Web服务器应答<br>5、Web服务器发送应答头信息<br>6、Web服务器向浏览器发送数据<br>7、Web浏览器关闭TCP连接 <br>http请求一般包含四部分：<br>1、方法： GET一般用于查询，使用URl传递参数； POST一般用于修改，内容嵌入到请求体中。 2、URL（地址）、<br>3、请求头、<br>4、请求体 <br>http相应一般包含三部分：<br>1、状态码：用来显示请求成功还是失败 2、响应头：包含例如服务器类型、日期时间、内容类型和长度啥的<br>3、响应体：响应的正文<br>注：http状态码：</p>
+<h3 id="二、介绍http-"><a href="#二、介绍http-" class="headerlink" title="二、介绍http ###"></a>二、介绍http ###</h3><p>http：计算机通过网路进行通信的协议 <br>http请求：<br>1、建立TCP连接<br>2、Web浏览器向Web服务器发送请求命令<br>3、Web浏览器发送请求头信息<br>4、Web服务器应答<br>5、Web服务器发送应答头信息<br>6、Web服务器向浏览器发送数据<br>7、Web浏览器关闭TCP连接 <br>http请求一般包含四部分：<br>1、方法： GET一般用于查询，使用URl传递参数； POST一般用于修改，内容嵌入到请求体中。 2、URL（地址）、<br>3、请求头、<br>4、请求体 <br>http相应一般包含三部分：<br>1、状态码：用来显示请求成功还是失败 2、响应头：包含例如服务器类型、日期时间、内容类型和长度啥的<br>3、响应体：响应的正文<br>注：http状态码：</p>
 <p><img src="http://img.mukewang.com/57bef7a20001565f06920356.png" alt="无法显示"></p>
 <h3 id="三、运用XMLHttpRequest对象"><a href="#三、运用XMLHttpRequest对象" class="headerlink" title="三、运用XMLHttpRequest对象"></a>三、运用XMLHttpRequest对象</h3><p>1、创建 new XMLHttpRequest();<br>2、发送方法：<br>open(method.uel,async)<br>senf(string):GET可以不填写string，但POST一般都要写些东西<br>3、取得响应<br>responseText ：获得字符串形式的响应数据<br>responseXML ：获得XML形式的响应数据<br>status和statusText ：以数字和文本形式返回HTTP状态码<br>getAllResponseHeader() ：获取所有的响应报头<br>getResponseHeader() ：查询响应中的某个字段的值<br>注：readyState属性 </p>
 <p><img src="http://img.mukewang.com/57bef7e700010dbc06800304.png" alt="无法显示"></p>
@@ -526,7 +526,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Ajax全接触</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、ajax介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、ajax介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、介绍http-"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、介绍http ###</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、运用XMLHttpRequest对象"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、运用XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Ajax的简单例子"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、Ajax的简单例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、json-json"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、json json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、ajax第三方的封装："><span class="nav-number">1.0.6.</span> <span class="nav-text">六、ajax第三方的封装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、跨域请求"><span class="nav-number">1.0.7.</span> <span class="nav-text">七、跨域请求</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、ajax介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、ajax介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、介绍http-"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、介绍http ###</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、运用XMLHttpRequest对象"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、运用XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、Ajax的简单例子"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、Ajax的简单例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、json-json"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、json json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、ajax第三方的封装："><span class="nav-number">1.0.6.</span> <span class="nav-text">六、ajax第三方的封装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、跨域请求"><span class="nav-number">1.0.7.</span> <span class="nav-text">七、跨域请求</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
