@@ -4,13 +4,36 @@
   
     
     <entry>
+      <title><![CDATA[Ajax全接触]]></title>
+      <url>http://carvebone.com/2016/09/04/AJAX/</url>
+      <content type="html"><![CDATA[<p></p><h1>Ajax全接触</h1> <p></p>
+<h3 id="一、ajax介绍"><a href="#一、ajax介绍" class="headerlink" title="一、ajax介绍"></a>一、ajax介绍</h3><p>Asynchronous JavaScript and XML（异步的JavaScript和XML） 是一种在无需加载整个网页的情况之下能够更新部分网页的技术。<br>读音：A zhai ke si 不是 阿贾克斯<br>Ajax带来了网页的异步。<br><a id="more"></a></p>
+<h3 id="二、介绍http-"><a href="#二、介绍http-" class="headerlink" title="二、介绍http ###"></a>二、介绍http ###</h3><p>http：计算机通过网路进行通信的协议 ###<br>http请求：<br>1、建立TCP连接<br>2、Web浏览器向Web服务器发送请求命令<br>3、Web浏览器发送请求头信息<br>4、Web服务器应答<br>5、Web服务器发送应答头信息<br>6、Web服务器向浏览器发送数据<br>7、Web浏览器关闭TCP连接 <br>http请求一般包含四部分：<br>1、方法： GET一般用于查询，使用URl传递参数； POST一般用于修改，内容嵌入到请求体中。 2、URL（地址）、<br>3、请求头、<br>4、请求体 <br>http相应一般包含三部分：<br>1、状态码：用来显示请求成功还是失败 2、响应头：包含例如服务器类型、日期时间、内容类型和长度啥的<br>3、响应体：响应的正文<br>注：http状态码：</p>
+<p><img src="http://img.mukewang.com/57bef7a20001565f06920356.png" alt="无法显示"></p>
+<h3 id="三、运用XMLHttpRequest对象"><a href="#三、运用XMLHttpRequest对象" class="headerlink" title="三、运用XMLHttpRequest对象"></a>三、运用XMLHttpRequest对象</h3><p>1、创建 new XMLHttpRequest();<br>2、发送方法：<br>open(method.uel,async)<br>senf(string):GET可以不填写string，但POST一般都要写些东西<br>3、取得响应<br>responseText ：获得字符串形式的响应数据<br>responseXML ：获得XML形式的响应数据<br>status和statusText ：以数字和文本形式返回HTTP状态码<br>getAllResponseHeader() ：获取所有的响应报头<br>getResponseHeader() ：查询响应中的某个字段的值<br>注：readyState属性 </p>
+<p><img src="http://img.mukewang.com/57bef7e700010dbc06800304.png" alt="无法显示"></p>
+<p>XMLHttpRequest使用： </p>
+<p><img src="http://img.mukewang.com/57bef804000133f207220393.png" alt="无法显示"></p>
+<h3 id="四、Ajax的简单例子"><a href="#四、Ajax的简单例子" class="headerlink" title="四、Ajax的简单例子"></a>四、Ajax的简单例子</h3><p>1、PHP端服务器：监听GET和POST，返回信息或更改信息。<br>PS：用fiddler这个软件在前台没有建立起来的情况下通过http（GET和POST）检测后台的程序。<br>2、前台程序的建立：<br>a、html代码布局出来。包含input、button、label等 b、script部分代码进行http的GET网络请求与刷新。 c、F12进行观察发送与接收http的信息。</p>
+<h3 id="五、json-json"><a href="#五、json-json" class="headerlink" title="五、json json"></a>五、json json</h3><p><img src="http://img.mukewang.com/57bef8210001cfa409390415.png" alt="无法显示"></p>
+<p>语法规则：<br>名称/值对 例：”name”:”hello” </p>
+<p><img src="http://img.mukewang.com/57bef83c00018bb005290376.png" alt="无法显示"></p>
+<p>名称/值对 json解析：<br>eval和JSON.parse<br>var json obj = eval( ‘(‘ + jsondata + ‘)’ );<br>var json obj = JSON.parse( ‘(‘ + jsondata + ‘)’ );<br>PS：json在线校验工具 jsonlint.com </p>
+<h3 id="六、ajax第三方的封装："><a href="#六、ajax第三方的封装：" class="headerlink" title="六、ajax第三方的封装："></a>六、ajax第三方的封装：</h3><p>jQuery中的ajax使用</p>
+<h3 id="七、跨域请求"><a href="#七、跨域请求" class="headerlink" title="七、跨域请求"></a>七、跨域请求</h3><p>javascript出于安全方面的考虑，不允许跨域调用其他页面的对象。<br>a.com域名下的js无法操作b.com域名下的对象。<br>1、后台服务器做代理<br>2、jsonp </p>
+<p><img src="http://img.mukewang.com/57bef85b000185a508260527.png" alt="无法显示"><br>一般只支持GET请求，不支持POSt请求<br>3、 </p>
+<p><img src="http://img.mukewang.com/57bef871000128b409090425.png" alt="无法显示"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Dom事件学习笔记总结]]></title>
       <url>http://carvebone.com/2016/08/17/My-New-Post/</url>
       <content type="html"><![CDATA[<p></p><h3>事件</h3> <p>是文档或浏览器窗口中发生的特定的交互瞬间。【JavaScript &lt;——&gt;HTML】</p> <p></p>
 <p></p><h3>事件流：</h3> <p>描述的是从页面中接受事件的顺序 （IE：事件冒泡流 / Netscape事件捕获流）</p><p></p>
-<p></p><h3>事件冒泡：</h3><p>即事件最开始由最具体的元素（文档中嵌套最深的那个节点）接收，然后逐级向上传播至最不具体的那个节点（文档）。</p> <p></p>
+<p></p><h3>事件冒泡：</h3><p>即事件最开始由最具体的元素（文档中嵌套最深的那个节点）接收，然后逐级向上传播至最不具体的那个节点（文档）。</p><br><a id="more"></a><p></p>
 <p></p><h3>事件捕获：</h3> <p>不太具体的节点应该更早接收到元素，而最具体的节点最后接收到事件。</p><p></p>
-<p></p><h3>HTML事件处理程序(现在不建议使用了): </h3><br>事件直接加在HTML代码中<br>缺点：HTML和js代码高耦合，如果修改，就要修改两个地方–HTML元素内和script函数。<br> <a id="more"></a><p></p>
+<p></p><h3>HTML事件处理程序(现在不建议使用了): </h3><br>事件直接加在HTML代码中<br>缺点：HTML和js代码高耦合，如果修改，就要修改两个地方–HTML元素内和script函数。<p></p>
 <h3 id="DOM0级事件处理程序（用得比较多）："><a href="#DOM0级事件处理程序（用得比较多）：" class="headerlink" title="DOM0级事件处理程序（用得比较多）："></a>DOM0级事件处理程序（用得比较多）：</h3><p>先把元素取出来，然后为其属性添加一个事件的方法叫DOM0级处理程序。 它是一种较传统的方式：把一个函数赋值给一个事件处理程序的属性。<br>优点：简单，跨浏览器的优势 var btn2=document.getElementById(“btn2”);—先获取出元素，定义对象 //取得btn2按钮对象<br>btn2.onclick=function(){alert(‘这是通过DOM0级添加的事件！’)}—-让 事件以对象的属性 的形式出现。 //给btn2添加onclick属性</p>
 <h3 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a>DOM2级事件处理程序</h3><p>定义了两个方法–用于处理指定和删除事件处理程序的操作：<br>addEventListener()添加事件监听程序<br>removeEventListener()移除事件监听程序<br>三个参数设置;事件名称，处理方法(函数)，布尔值–false：表示在冒泡阶段调用事件处理程序(可以最大限度的兼容浏览器)，一般设为false；true表示在捕获阶段调用事件处理程序<br>btn3.addEventListener(‘click’,showMes,false);<br>注意：<br>1、若事件名称有on，则需去掉on。onclick –&gt; click，onmouseover –&gt; mouseover等等；<br>2、false 最大限度兼容所有浏览器–事件冒泡流。<br>3.通过addEventListener添加的事件只能通过removeEventListener来删除。–参数要与添加事件时相同 btn3.removeEventListener(参数);//参数必须和btn.addEventListener的参数一致，删除事件监听</p>
 <p> <i>DOM0级和DOM2级事件处理程序可以给一个事件绑定多个函数，事件触发的时候会按照绑定顺序执行各个函数。如下所示：<br> btn3.addEventListener(‘click’,showMes,false);<br> btn3.addEventListener(‘click’,showMes,function(){alert(this.value）;},false);<br> 缺点：IE不支持该事件</i> </p>
