@@ -1,0 +1,931 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="H5 移动端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="box-sizing的理解及使用该属性是解决盒模型在不同的浏览器中表现不一致的问题。它有三个属性值分别是：content-box: 默认值(标准盒模型); width和height只包括内容的宽和高，不包括边框，内边距;比如如下div元素：boxcss如下：.box {width:200px;height:200px;padding:10px;border:1px solid #333;margi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5移动端知识点总结（二）">
+<meta property="og:url" content="http://carvebone.com/2016/09/03/H5移动端知识点总结（二）/index.html">
+<meta property="og:site_name" content="琢骨のBlog">
+<meta property="og:description" content="box-sizing的理解及使用该属性是解决盒模型在不同的浏览器中表现不一致的问题。它有三个属性值分别是：content-box: 默认值(标准盒模型); width和height只包括内容的宽和高，不包括边框，内边距;比如如下div元素：boxcss如下：.box {width:200px;height:200px;padding:10px;border:1px solid #333;margi">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(16).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp.jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(1).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(2).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.png.jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(4).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(12).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(13).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(14).jpg">
+<meta property="og:image" content="http://carvebone.com/images/640.webp(15).jpg">
+<meta property="og:updated_time" content="2016-09-14T05:55:21.725Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5移动端知识点总结（二）">
+<meta name="twitter:description" content="box-sizing的理解及使用该属性是解决盒模型在不同的浏览器中表现不一致的问题。它有三个属性值分别是：content-box: 默认值(标准盒模型); width和height只包括内容的宽和高，不包括边框，内边距;比如如下div元素：boxcss如下：.box {width:200px;height:200px;padding:10px;border:1px solid #333;margi">
+<meta name="twitter:image" content="http://carvebone.com/images/640.webp(16).jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://carvebone.com/2016/09/03/H5移动端知识点总结（二）/"/>
+
+  <title> H5移动端知识点总结（二） | 琢骨のBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">琢骨のBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demo">
+          <a href="/Demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            作品库
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                H5移动端知识点总结（二）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T15:31:28+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/03/H5移动端知识点总结（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/H5移动端知识点总结（二）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="box-sizing的理解及使用"><a href="#box-sizing的理解及使用" class="headerlink" title="box-sizing的理解及使用"></a>box-sizing的理解及使用</h3><p>该属性是解决盒模型在不同的浏览器中表现不一致的问题。它有三个属性值分别是：<br>content-box: 默认值(标准盒模型); width和height只包括内容的宽和高，不包括边框，内边距;<br>比如如下div元素：<pre><code><div class="box">box</div></code></pre><br>css如下：<pre><code>.box {width:200px;height:200px;padding:10px;border:1px solid #333;margin:10px;box-sizing:content-box;}</code></pre><br><a id="more"></a><br>那么在浏览器下渲染的实际宽度和高度分别是：222px,222px; 因为在标准的盒模型下，在浏览器中渲染的实际宽度和高度包括<br>内边距(padding)和边框的(border);如下图所示：</p>
+<p><img src="images/640.webp(16).jpg"></p>
+<p>border-box: width与height是包括内边距和边框的，不包括外边距，这是IE的怪异模式使用的盒模型，比如还是上面的代码：</p>
+<p><pre><code><div class="box">box</div>;</code></pre><br>css代码如下：</p>
+<p><pre><code>.box {width:200px;height:200px;padding:10px;border:1px solid #333;margin:10px;box-sizing:border-box;}</code></pre><br>那么此时浏览器渲染的width会是178px，height也是178px; 因为此时定义的width和height会包含padding和border在内;<br>使用这个属性对于在使用百分比的情况下布局页面非常有用，比如有两列布局宽度都是50%;但是呢还有padding和border，那么这个<br>时候如果我们不使用该属性的话(当然我们也可以使用calc方法来计算); 那么总宽度会大于页面中的100%;因此这时候可以使用这<br>个属性来使页面达到100%的布局.如下图所示：</p>
+<p><img src="images/640.webp.jpg"></p>
+<p>浏览器支持的程度如下：</p>
+<p><img src="images/640.webp(1).jpg"></p>
+<p>回到顶部<br>理解display:box的布局<br>display: box; box-flex 是css3新添加的盒子模型属性，它可以为我们解决按比列划分，水平均分，及垂直等高等。</p>
+<h3 id="一：按比例划分："><a href="#一：按比例划分：" class="headerlink" title="一：按比例划分："></a>一：按比例划分：</h3><p>目前box-flex 属性还没有得到firefox, Opera, chrome浏览器的完全支持，但我们可以使用它们的私有属性定义firefox(-moz-)，opera(-o-)，chrome/safari（-webkit-）。<br>box-flex属性主要让子容器针对父容器的宽度按一定的规则进行划分。 代码如下：</p>
+<p><pre><code></code></pre></p>
+<p><div class="test"><br>      <p id="p1">Hello</p><br>      <p id="p2">W3School</p><br> </div><br> <style><br>   .test{<br>      display:-moz-box;<br>      display:-webkit-box;<br>      display:box;<br>      width:300px;<br>   }</p>
+<p>   #p1{<br>      -moz-box-flex:1.0;<br>      -webkit-box-flex:1.0;<br>      box-flex:1;<br>      border:1px solid red;<br>   }</p>
+<p>   #p2{<br>      -moz-box-flex:2.0;<br>      -webkit-box-flex:2.0;<br>      box-flex:2;<br>      border:1px solid blue;<br>   }</style><br><br>如下图所示：</p>
+<p><img src="images/640.webp(2).jpg"></p>
+<p>注意：</p>
+<ol>
+<li>必须给父容器定义 display: box, 其子元素才可以进行划分。如上给id为p1设置box-flex设置为1，给id为p2设置box-flex为2，<br>说明分别给其设置1等分和2等分，也就是说给id为p1元素设置宽度为 300 <em> 1/3 = 100px; 给id为p2元素设置宽度为 300 </em> 2/3 = 200px;</li>
+<li>如果进行父容器划分的同时，他的子元素有的设置了宽度，有的要进行划分的话，那么划分的宽度 = 父容器的宽度 – 已经设置的宽度 。<br>再进行对应的划分。</li>
+</ol>
+<p>如下图所示：</p>
+<p><img src="images/640.png.jpg"></p>
+<h3 id="二：box具体的属性如下："><a href="#二：box具体的属性如下：" class="headerlink" title="二：box具体的属性如下："></a>二：box具体的属性如下：</h3><p>box-orient | box-direction | box-align | box-pack | box-lines</p>
+<ol>
+<li>box-orient;<br>box-orient 用来确定父容器里的子容器的排列方式，是水平还是垂直，可选属性如下所示：<br>horizontal | vertical | inline-axis | block-axis | inherit<br>一：horizontal | inline-axis<br>给box设置 horizontal 或 inline-axis 属性效果表现一致。都可以将子元素进行水平排列.<br>如下html代码：</li>
+</ol>
+<p><pre><code></code></pre></p>
+<p><div class="test"><br>       <p id="p1">Hello</p><br>       <p id="p2">W3School</p><br>   </div><br>   css代码如下：<br>   <style><br>       .test{<br>          display:-moz-box;<br>          display:-webkit-box;<br>          display:box;<br>          width:300px;<br>          height:200px;<br>          -moz-box-orient:horizontal;<br>          -webkit-box-orient:horizontal;<br>          box-orient:horizontal;<br>       }</p>
+<pre><code>   #p1{
+      -moz-box-flex:1.0; 
+      -webkit-box-flex:1.0; 
+      box-flex:1;
+      border:1px solid red;
+   }
+   #p2{
+      -moz-box-flex:2.0; 
+      -webkit-box-flex:2.0; 
+      box-flex:2;
+      border:1px solid blue;
+   }
+&lt;/style&gt;
+</code></pre><p></pre></code><br>如下图所示：</p>
+<p><img src="images/640.webp(3" alt="Alt text">.jpg)</p>
+<h3 id="二：vertical-可以让子元素进行垂直排列"><a href="#二：vertical-可以让子元素进行垂直排列" class="headerlink" title="二：vertical 可以让子元素进行垂直排列;"></a>二：vertical 可以让子元素进行垂直排列;</h3><p>css代码如下：</p>
+<p><pre><code></p>
+<p><style><br>   *{margin:0;padding:0;}<br>   .test{<br>      display:-moz-box;<br>      display:-webkit-box;<br>      display:box;<br>      width:300px;<br>      height:200px;<br>      -moz-box-orient:vertical;<br>      -webkit-box-orient:vertical;<br>      box-orient:vertical;<br>   }</p>
+<p>   #p1{<br>      -moz-box-flex:1.0;<br>      -webkit-box-flex:1.0;<br>      box-flex:1;<br>      border:1px solid red;<br>   }</p>
+<p>   #p2{<br>      -moz-box-flex:2.0;<br>      -webkit-box-flex:2.0;<br>      box-flex:2;<br>      border:1px solid blue;<br>   }</style><br><br>如下图所示：</p>
+<p><img src="images/640.webp(4).jpg"></p>
+<h3 id="三：inherit。-Inherit属性让子元素继承父元素的相关属性。"><a href="#三：inherit。-Inherit属性让子元素继承父元素的相关属性。" class="headerlink" title="三：inherit。 Inherit属性让子元素继承父元素的相关属性。"></a>三：inherit。 Inherit属性让子元素继承父元素的相关属性。</h3><p>效果和第一种效果一样，都是水平对齐;</p>
+<ol>
+<li>box-direction<br>还是如下html代码：<br><pre><code><br><div class="test"><br>  <p id="p1">Hello</p><br>  <p id="p2">W3School</p></div></code></pre><br>box-direction 用来确定父容器里的子容器的排列顺序，具体的属性如下代码所示：<br>normal | reverse | inherit<br>normal是默认值，按照HTML文档里的结构的先后顺序依次展示， 如果box-direction 设置为 normal，则结构顺序还是 id为p1元素，id为p2元素。<br>reverse: 表示反转。如果设置reverse反转，则结构排列顺序为 id为p2元素，id为p1元素。如下代码：<br>css代码如下：</li>
+</ol>
+<p><pre><code></code></pre></p>
+<p><style><br>       *{margin:0;padding:0;}<br>       .test{<br>          display:-moz-box;<br>          display:-webkit-box;<br>          display:box;<br>          width:300px;<br>          height:200px;<br>          -moz-box-direction:reverse;<br>          -webkit-box-direction:reverse;<br>          box-direction:reverse;<br>       }</p>
+<pre><code>   #p1{
+      -moz-box-flex:1.0; 
+      -webkit-box-flex:1.0; 
+      box-flex:1;
+      border:1px solid red;
+   }
+   #p2{
+      -moz-box-flex:2.0; 
+      -webkit-box-flex:2.0; 
+      box-flex:2;
+      border:1px solid blue;
+   }
+&lt;/style&gt;
+</code></pre><p></pre></code><br>如下图所示：</p>
+<p><img src="images/640.webp(5).jpg"></p>
+<ol>
+<li>box-align:</li>
+</ol>
+<p>box-align 表示容器里面字容器的垂直对齐方式，可选参数如下表示：<br>start | end | center | baseline | stretch</p>
+<ol>
+<li>对齐方式 start：表示居顶对齐<br>代码如下：</li>
+</ol>
+<p><pre><code></p>
+<p><style><br>       *{margin:0;padding:0;}<br>       .test{<br>          display:-moz-box;<br>          display:-webkit-box;<br>          display:box;<br>          width:300px;<br>          height:200px;<br>          -moz-box-align:start;<br>          -webkit-box-align:start;<br>          box-align:start;<br>       }</p>
+<pre><code>   #p1{
+      -moz-box-flex:1.0; 
+      -webkit-box-flex:1.0; 
+      box-flex:1;
+      height:160px;
+      border:1px solid red;
+   }
+   #p2{
+      -moz-box-flex:2.0; 
+      -webkit-box-flex:2.0; 
+      box-flex:2;
+      height:100px;
+      border:1px solid blue;
+   }
+&lt;/style&gt;
+</code></pre><p></pre></code><br>如上 P1 高度为160px p2 为100px; 对齐方式如下图所示：</p>
+<p><img src="images/640.webp(6).jpg"></p>
+<p>如果改为end的话，那么就是 居低对齐了，如下：</p>
+<p><img src="images/640.webp(7).jpg"></p>
+<p>center表示居中对齐，如下：</p>
+<p><img src="images/640.webp(8).jpg"></p>
+<p>stretch 在box-align表示拉伸，拉伸与其父容器等高。如下代码：</p>
+<p><img src="images/640.webp(9).jpg"></p>
+<p>在firefox下 和父容器下等高，满足条件，如下：</p>
+<p><img src="images/640.webp(10).jpg"></p>
+<p>在chrome下不满足条件；如下：</p>
+<p><img src="images/640.webp(11).jpg"></p>
+<ol>
+<li>box-pack</li>
+</ol>
+<p>box-pack表示父容器里面子容器的水平对齐方式，可选参数如下表示：<br>  start | end | center | justify<br>box-pack:start; 表示水平居左对齐，对于正常方向的框，首个子元素的左边缘被放在左侧（最后的子元素后是所有剩余的空间）<br>对于相反方向的框，最后子元素的右边缘被放在右侧（首个子元素前是所有剩余的空间）代码如下所示：</p>
+<p><pre><code></p>
+<p><style><br>   *{margin:0;padding:0;}<br>   .test{<br>      display:-moz-box;<br>      display:-webkit-box;<br>      display:box;<br>      width:400px;<br>      height:120px;<br>      border:1px solid #333;<br>      -moz-box-pack:start;<br>      -webkit-box-pack:start;<br>      box-pack:start;<br>   }</p>
+<p>   #p1{<br>      width:100px;<br>      height:108px;<br>      border:1px solid red;<br>   }</p>
+<p>   #p2{<br>      width:100px;<br>      height:108px;<br>      border:1px solid blue;<br>   }</style><br><br>如下图所示：</p>
+<p><img src="images/640.webp(12).jpg"></p>
+<p>box-pack:center;  表示水平居中对齐,均等地分割多余空间，其中一半空间被置于首个子元素前，另一半被置于最后一个子元素后; 如下图所示：</p>
+<p><img src="images/640.webp(13).jpg"></p>
+<p>box-pack:end; 表示水平居右对齐;对于正常方向的框，最后子元素的右边缘被放在右侧（首个子元素前是所有剩余的空间）。<br>对于相反方向的框，首个子元素的左边缘被放在左侧（最后子元素后是所有剩余的空间）。如下图所示：</p>
+<p><img src="images/640.webp(14).jpg"></p>
+<p>box-pack:Justify：<br>在box-pack表示水平等分父容器宽度（在每个子元素之间分割多余的空间（首个子元素前和最后一个子元素后没有多余的空间））<br>如下：</p>
+<p><img src="images/640.webp(15).jpg"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/H5-移动端/" rel="tag">#H5 移动端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/01/H5移动端知识点总结（一）/" rel="next" title="H5移动端知识点总结（一）">
+                <i class="fa fa-chevron-left"></i> H5移动端知识点总结（一）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/14/H5移动端知识点总结（三）/" rel="prev" title="My new Post">
+                My new Post <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/03/H5移动端知识点总结（二）/"
+           data-title="H5移动端知识点总结（二）" data-url="http://carvebone.com/2016/09/03/H5移动端知识点总结（二）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="琢骨" />
+          <p class="site-author-name" itemprop="name">琢骨</p>
+          <p class="site-description motion-element" itemprop="description">write less do more<br/>编写艺术般的代码</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/857381350" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2497556597" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#box-sizing的理解及使用"><span class="nav-number">1.</span> <span class="nav-text">box-sizing的理解及使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一：按比例划分："><span class="nav-number">2.</span> <span class="nav-text">一：按比例划分：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：box具体的属性如下："><span class="nav-number">3.</span> <span class="nav-text">二：box具体的属性如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三：inherit。-Inherit属性让子元素继承父元素的相关属性。"><span class="nav-number">4.</span> <span class="nav-text">三：inherit。 Inherit属性让子元素继承父元素的相关属性。</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">琢骨</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"carvebone"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
