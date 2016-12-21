@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="响应式," />
+  <meta name="keywords" content="Vue.js," />
 
 
 
@@ -84,18 +84,16 @@
 
 
 
-<meta name="description" content="关于最近的工作最近一直在做直播室的页面，虽然是单页面，但是没有想象中的简单，要做到适配各个终端。其中响应式的坑也是蛮多的，一开始用bootstrap做框架，可能也是用的不熟悉，大的框架好定义，细节部分就很难做了，毕竟要切合需求，很多还是需要自定义的。">
+<meta name="description" content="大名鼎鼎的三大MVVM框架之一Vue.js是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。相比Angular React，vue显得更加小巧，轻量。当然vue所能实现的功能也不会比前两个差太多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于网页宽度高度的自适应">
-<meta property="og:url" content="http://carvebone.com/2016/11/04/关于响应式/index.html">
+<meta property="og:title" content="初识Vue">
+<meta property="og:url" content="http://carvebone.com/2016/12/21/初识Vue/index.html">
 <meta property="og:site_name" content="琢骨のBlog">
-<meta property="og:description" content="关于最近的工作最近一直在做直播室的页面，虽然是单页面，但是没有想象中的简单，要做到适配各个终端。其中响应式的坑也是蛮多的，一开始用bootstrap做框架，可能也是用的不熟悉，大的框架好定义，细节部分就很难做了，毕竟要切合需求，很多还是需要自定义的。">
-<meta property="og:image" content="http://storage1.imgchr.com/m7ZV.png">
-<meta property="og:updated_time" content="2016-11-04T16:45:38.423Z">
+<meta property="og:description" content="大名鼎鼎的三大MVVM框架之一Vue.js是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。相比Angular React，vue显得更加小巧，轻量。当然vue所能实现的功能也不会比前两个差太多">
+<meta property="og:updated_time" content="2016-12-21T12:46:10.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于网页宽度高度的自适应">
-<meta name="twitter:description" content="关于最近的工作最近一直在做直播室的页面，虽然是单页面，但是没有想象中的简单，要做到适配各个终端。其中响应式的坑也是蛮多的，一开始用bootstrap做框架，可能也是用的不熟悉，大的框架好定义，细节部分就很难做了，毕竟要切合需求，很多还是需要自定义的。">
-<meta name="twitter:image" content="http://storage1.imgchr.com/m7ZV.png">
+<meta name="twitter:title" content="初识Vue">
+<meta name="twitter:description" content="大名鼎鼎的三大MVVM框架之一Vue.js是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。相比Angular React，vue显得更加小巧，轻量。当然vue所能实现的功能也不会比前两个差太多">
 
 
 
@@ -116,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://carvebone.com/2016/11/04/关于响应式/"/>
+  <link rel="canonical" href="http://carvebone.com/2016/12/21/初识Vue/"/>
 
-  <title> 关于网页宽度高度的自适应 | 琢骨のBlog </title>
+  <title> 初识Vue | 琢骨のBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +279,7 @@
             
             
               
-                关于网页宽度高度的自适应
+                初识Vue
               
             
           </h1>
@@ -293,8 +291,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T23:28:42+08:00" content="2016-11-04">
-              2016-11-04
+            <time itemprop="dateCreated" datetime="2016-12-21T20:19:39+08:00" content="2016-12-21">
+              2016-12-21
             </time>
           </span>
 
@@ -304,8 +302,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/04/关于响应式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/关于响应式/" itemprop="commentsCount"></span>
+                <a href="/2016/12/21/初识Vue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/21/初识Vue/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -333,12 +331,9 @@
       
 
       
-        <h3 id="关于最近的工作"><a href="#关于最近的工作" class="headerlink" title="关于最近的工作"></a>关于最近的工作</h3><p>最近一直在做直播室的页面，虽然是单页面，但是没有想象中的简单，要做到适配各个终端。其中响应式的坑也是蛮多的，一开始用bootstrap做框架，可能也是用的不熟悉，大的框架好定义，细节部分就很难做了，毕竟要切合需求，很多还是需要自定义的。<br><a id="more"></a></p>
-<h4 id="说说自己遇到的一些问题和解决方法吧"><a href="#说说自己遇到的一些问题和解决方法吧" class="headerlink" title="说说自己遇到的一些问题和解决方法吧"></a>说说自己遇到的一些问题和解决方法吧</h4><p>首先要做到自适应，一般考虑屏幕的宽度，随着屏幕宽度改变内容的比例，其中宽度大多用百分比，到了小屏幕用媒体查询，说白了就是让并排的块，竖着排列。可是某些部分需要固定宽度，比如logo，侧导航，需要保持宽度不变，这样的话并排三列，其中一个固定宽度，其他两个就用百分比就会出现间隙不是固定距离。这个我用了绝对定位，right和width,left等用了百分比和固定距离，大概如下图所示!</p>
-<p><img src="http://storage1.imgchr.com/m7ZV.png" alt="无法显示"></p>
-<p>这里绿色部分用了绝对定为，而不设置宽度，和左边距离固定，和右边距离为百分之50，这样它自己的宽度其实是为屏幕宽度-左边导航宽度-右边百分之50，这样就可以实现随屏幕宽度改变而改变，而且没有间隙，右边则定义宽度为百分之50，刚好和绿色部分的right=50%一样，而它的也就蓝色部分的right=0，则让它紧贴着浏览器右边框。</p>
-<h3 id="关于高度自适应"><a href="#关于高度自适应" class="headerlink" title="关于高度自适应"></a>关于高度自适应</h3><p>这个确实一开始比较难做，因为一直在1080p的显示器做，换到760px的屏幕以及笔记本的时候，就会出现滚动条，因为我做的是一个视频直播附带聊天的网站，绿色部分为聊天区，蓝色为视频区，下面还有个通知和广告栏，这个时候就出现了小屏幕，输入框在下面，需要拖动滚动条才能看输入框，这样就影响视频区观看，所以为了让用户可以打字聊天的时候也不影响视频部分，就要求任何高度所有内容都要在一个视口，不能有滚动条，这个使用百分比和媒体查询就比较麻烦了。</p>
-<p>这个时候就用到了 jquery的事件resize（）方法<br>比如：<br>$(window).resize(function() {<br>  var wH = $(window).heght(); //获取浏览器的高度<br>  $(‘.chat’).height(wH - 70);//聊天区height为浏览器高度-导航栏的高度<br>  $(‘.vedio’).height(wH - 70 - adH)//视频区高度height为浏览器高度-导航-底部广告区的高度<br>});<br>大概就是这个原理，具体代码请参见我作品 直播室项目源代码<br>这样基本让网页自适应。</p>
+        <h2 id="大名鼎鼎的三大MVVM框架之一"><a href="#大名鼎鼎的三大MVVM框架之一" class="headerlink" title="大名鼎鼎的三大MVVM框架之一"></a>大名鼎鼎的三大MVVM框架之一</h2><p>Vue.js是一个构建数据驱动的 web 界面的渐进式框架。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。<br>相比Angular React，vue显得更加小巧，轻量。当然vue所能实现的功能也不会比前两个差太多<br> <a id="more"></a><br>就我个人而言，vue 的开发体验还是比较愉悦的。首先，文档非常友好，所以上手会比较快。其次，配合 webpack 和 vue-loader，每个页面都是一个 .vue 文件，写起来很方便。另外，适合做组件化开发（每个组件也是一个 .vue 文件，可以全局或者在需要的地方引入），如果遇到比较复杂的、父子组件间需要频繁通信的场景，可以用 vuex 搞定。</p>
+<p>目前看了下Vue官网<a href="http://cn.vuejs.org/" target="_blank" rel="external"><strong>Vue.js</strong></a>试着做了个<a href="http://www.carvebone.com/Demo/vue_toolbar/toolbar.html" target="_blank" rel="external"><strong>一个简单的 Vue Demo</strong></a></p>
+<p>放一段vue的作者<a href="https://zhuanlan.zhihu.com/p/20302927?columnSlug=evanyou" target="_blank" rel="external"><strong>尤雨溪的回答</strong></a></p>
 
       
     </div>
@@ -360,7 +355,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/响应式/" rel="tag">#响应式</a>
+            <a href="/tags/Vue-js/" rel="tag">#Vue.js</a>
           
         </div>
       
@@ -369,17 +364,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/04/AJAX/" rel="next" title="Ajax全接触">
-                <i class="fa fa-chevron-left"></i> Ajax全接触
+              <a href="/2016/11/04/关于响应式/" rel="next" title="关于网页宽度高度的自适应">
+                <i class="fa fa-chevron-left"></i> 关于网页宽度高度的自适应
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/21/初识Vue/" rel="prev" title="初识Vue">
-                初识Vue <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,8 +396,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/04/关于响应式/"
-           data-title="关于网页宽度高度的自适应" data-url="http://carvebone.com/2016/11/04/关于响应式/">
+      <div class="ds-thread" data-thread-key="2016/12/21/初识Vue/"
+           data-title="初识Vue" data-url="http://carvebone.com/2016/12/21/初识Vue/">
       </div>
     
   </div>
@@ -510,7 +501,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于最近的工作"><span class="nav-number">1.</span> <span class="nav-text">关于最近的工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说说自己遇到的一些问题和解决方法吧"><span class="nav-number">1.1.</span> <span class="nav-text">说说自己遇到的一些问题和解决方法吧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于高度自适应"><span class="nav-number">2.</span> <span class="nav-text">关于高度自适应</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#大名鼎鼎的三大MVVM框架之一"><span class="nav-number">1.</span> <span class="nav-text">大名鼎鼎的三大MVVM框架之一</span></a></li></ol></div>
             
           </div>
         </section>
